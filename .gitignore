@@ -1,0 +1,41 @@
+# ===== Security Sensitive Files =====
+password.sh
+
+*.key
+*.pem
+*.p12
+*.crt
+*.secret
+
+# ===== Logs and Temporary Files =====
+LOG/
+*.log
+
+*.tmp
+*.swp
+*.bak
+*.orig
+
+# ===== Environment and Package Managers =====
+venv/
+.venv/
+env/
+.env
+.env.*
+conda-meta/
+
+# ===== OS Specific Files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# ===== Editors and IDEs =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== CLI Specific =====
+.twcc_data/
+*.json
