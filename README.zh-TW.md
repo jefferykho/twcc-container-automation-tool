@@ -23,12 +23,12 @@
     - [Step 1️⃣. 專案初始化](#step-1️⃣-專案初始化)
     - [Step 2️⃣. 編輯 `setting.sh` 基本設定](#step-2️⃣-編輯-settingsh-基本設定)
     - [Step 3️⃣. 準備指令檔案](#step-3️⃣-準備指令檔案)
-        - [Common_Commands.sh](#common_commandssh)
-        - [Commands.sh](#commandssh)
+        - [📜 Common_Commands.sh](#-common_commandssh)
+        - [📜 Commands.sh](#-commandssh)
     - [Step 4️⃣. 執行腳本](#step-4️⃣-執行腳本)
-- [⚙️ `setting.sh`進階功能設定](#-settingsh進階功能設定)
+- [🔬 `setting.sh`進階功能設定](#-settingsh進階功能設定)
 - [🚨 注意事項](#-注意事項)
-- [⚖️ 授權條款](#-授權條款)
+- [📄 授權條款](#-授權條款)
 
 ---
 
@@ -72,7 +72,7 @@
 | **tmux/screen** | 遠端容器內的終端多工器 | `sudo apt install tmux/screen` |
 
 > [!IMPORTANT]
-> ⚠️ **重要提示**：針對TWCC-CLI工具，開始前請務必先完成 [官方登入設定](https://man.twcc.ai/@twccdocs/guide-cli-signin-zh)。
+> 📢 針對TWCC-CLI工具，開始前請務必先完成 [官方登入設定](https://man.twcc.ai/@twccdocs/guide-cli-signin-zh)。
 
 ---
 
@@ -133,7 +133,7 @@ CHECK_MODE=false # false/true
 
 **套件路徑**：在 `TWCC_CLI_CMD`、`SSHPASS_CMD`、`JQ_CMD` 分別填入您**本地機器**的`twccli`、`sshpass`、`jq`套件路徑，並在 `TWCC_CLI_CMD_CONTAINER` 填入您 **TWCC 機器**的 `twccli` 套件路徑。
 > [!NOTE]
-> ⚠️ 若您的 `twccli` / `sshpass` / `jq` 不在 conda 環境中，請改為實際安裝路徑。可在命令列使用 `which twccli/sshpass/jq` 等指令查詢安裝路徑。
+> 🔔 若您的 `twccli` / `sshpass` / `jq` 不在 conda 環境中，請改為實際安裝路徑。可在命令列使用 `which twccli/sshpass/jq` 等指令查詢安裝路徑。
 
 **映像檔設定**：在 `IMAGE_TYPE` 填入預計建立的CCS容器映像檔類型（如：TensorFlow, PyTorch, Custom Image 等），並在 `IMAGE_NAME` 填入預計建立的 CCS 容器使用的映像檔版本。
 > [!TIP]
@@ -155,7 +155,7 @@ CHECK_MODE=false # false/true
 
 以下是其分別的格式範例：
 
-#### Common_Commands.sh
+#### 📜 Common_Commands.sh
 
 ```bash
 cd ~/gpu-burn
@@ -169,7 +169,7 @@ END         # <-- (必要) 告知腳本在此停止
 
 **END 結束關鍵字（必要）**：`END` 必須出現在所有欲執行指令的最後，用於告知 script 停止解析。
 
-#### Commands.sh
+#### 📜 Commands.sh
 
 ```bash
 # @containername1       # <-- (選填) 定義容器名稱
@@ -221,7 +221,7 @@ bash container_batch_runner.sh
 
 ---
 
-## ⚙️ `setting.sh`進階功能設定
+## 🔬 `setting.sh`進階功能設定
 
 #### 指令檔相關設定
 
@@ -257,7 +257,7 @@ CPU_MATCH_TOLERANCE=2
 * `PREFERRED_SYSTEM_CPU_COUNT`：若設定為 `36` 或 `56`，會檢查容器機器的CPU是總數為36核的型號或56核的型號，若不符，會嘗試刪除並重新建立 CCS。預設值為 `None`，即不檢查。
 * `CPU_MATCH_TOLERANCE`：若 CPU 型號不符，重新建立 CCS 容器的最多反覆次數，若超過此值，就算 CPU 型號不符也不會再嘗試重新建立。
 > [!NOTE]
-> ⚠️ 不論CPU型號為總數36核版本或總數56核版本，每一單位GPU固定是分配到CPU的4核心。
+> 📢 不論CPU型號為總數36核版本或總數56核版本，每一單位GPU固定是分配到CPU的4核心。
 
 #### 其他設定
 
@@ -279,6 +279,6 @@ LOG_DIR="./LOG/"
 
 ---
 
-## ⚖️ 授權條款
+## 📄 授權條款
 
 本專案採用 MIT License 授權，詳見 [`LICENSE`](LICENSE) 檔案。

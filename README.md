@@ -23,12 +23,12 @@ This project provides a **Bash automation script** designed for [**TWCC (Taiwan 
     - [Step 1️⃣: Project Initialization](#step-1️⃣-project-initialization)
     - [Step 2️⃣: Edit `setting.sh`](#step-2️⃣-edit-settingsh)
     - [Step 3️⃣: Prepare Command Files](#step-3️⃣-prepare-command-files)
-        - [Example: `Common_Commands.sh`](#example-common_commandssh)
-        - [Example: `Commands.sh`](#example-commandssh)
+        - [📜 Example: `Common_Commands.sh`](#-example-common_commandssh)
+        - [📜 Example: `Commands.sh`](#-example-commandssh)
     - [Step 4️⃣: Run the Script](#step-4️⃣-run-the-script)
-- [⚙️ Advanced Settings (`setting.sh`)](#-advanced-settings-settingsh)
+- [🔬 Advanced Settings (`setting.sh`)](#-advanced-settings-settingsh)
 - [🚨 Important Notes](#-important-notes)
-- [⚖️ License](#-license)
+- [📄 License](#-license)
 
 ---
 
@@ -72,7 +72,7 @@ Also ensure your **TWCC machine** (the container environment) has the following 
 | **tmux/screen** | Terminal multiplexer | `sudo apt install tmux` or `sudo apt install screen` |
 
 > [!IMPORTANT]
-> ⚠️ Before starting, you must complete the [Official Login Configuration](https://man.twcc.ai/@twccdocs/guide-cli-signin-zh) for TWCC-CLI.
+> 📢 Before starting, you must complete the [Official Login Configuration](https://man.twcc.ai/@twccdocs/guide-cli-signin-zh) for TWCC-CLI.
 
 ---
 
@@ -133,7 +133,7 @@ CHECK_MODE=false # false / true
 
 **Tool Paths**: Set `TWCC_CLI_CMD`, `SSHPASS_CMD`, and `JQ_CMD` to the installation paths of `twccli`, `sshpass`, and `jq` on your **local machine**, and set `TWCC_CLI_CMD_CONTAINER` to the installation path of `twccli` on your **TWCC machine (container)**.
 > [!NOTE]
-> ⚠️ If these tools are not installed in a Conda environment, adjust the paths accordingly. Use `which twccli`, `which sshpass`, or `which jq` to locate your installation paths.
+> 🔔 If these tools are not installed in a Conda environment, adjust the paths accordingly. Use `which twccli`, `which sshpass`, or `which jq` to locate your installation paths.
 
 **Image Configuration**: Specify the CCS `IMAGE_TYPE` (e.g., TensorFlow, PyTorch, Custom Image) and the exact `IMAGE_NAME` (specific image version).
 > [!TIP]
@@ -153,7 +153,7 @@ This project uses two types of command files:
 1. **`Common_Commands.sh`**: Executed by **every CCS container** before the main commands, providing shared initialization steps (e.g., `conda activate`, `cd` into a directory).
 2. **`Commands.sh`**: Executed **per CCS container** to run the main command blocks, defining the specific commands for each CCS instance.
 
-#### Example: `Common_Commands.sh`
+#### 📜 Example: `Common_Commands.sh`
 
 ```bash
 cd ~/gpu-burn
@@ -167,7 +167,7 @@ END         # <-- (Mandatory) Signals the script to stop parsing here
 
 **END Keyword**: The `END` keyword must appear at the very end of your command list. The script will stop parsing once it hits `END`.
 
-#### Example: `Commands.sh`
+#### 📜 Example: `Commands.sh`
 
 ```bash
 # @containername1       # <-- (Optional) Define a specific container name
@@ -219,7 +219,7 @@ bash container_batch_runner.sh
 
 ---
 
-## ⚙️ Advanced Settings (`setting.sh`)
+## 🔬 Advanced Settings (`setting.sh`)
 
 #### Command File & Parsing Logic
 
@@ -255,7 +255,7 @@ CPU_MATCH_TOLERANCE=2
 * `PREFERRED_SYSTEM_CPU_COUNT`: If set to `36` or `56`, the script ensures that the container host corresponds to the intended CPU model, where `36` and `56` represent 36-core and 56-core processor models respectively. Otherwise, it deletes and recreates the CCS instance (up to `CPU_MATCH_TOLERANCE` retries).
 * `CPU_MATCH_TOLERANCE`: Maximum number of retries allowed if the container host does not match the specified CPU model (e.g., 36-core or 56-core).
 > [!NOTE]
-> Each GPU unit is allocated 4 CPU cores, regardless of whether the host is a 36-core or 56-core CPU model.
+> 📢 Each GPU unit is allocated 4 CPU cores, regardless of whether the host is a 36-core or 56-core CPU model.
 
 #### Other Settings
 
@@ -277,7 +277,7 @@ LOG_DIR="./LOG/"
 
 ---
 
-## ⚖️ License
+## 📄 License
 
 This project is licensed under the MIT License.
 See the [`LICENSE`](LICENSE) file for details.
